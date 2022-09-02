@@ -1,7 +1,7 @@
 import React,{ useContext } from 'react'
 import {List as MUIList, ListItem, ListItemAvatar, ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide} from '@mui/material'
 import { Delete, MoneyOff} from '@mui/icons-material'
-import './List.css'
+import './List.css';
 import { ExpenseTrackerContext } from '../../../Context/Context'
 
 
@@ -14,9 +14,18 @@ const List = () => {
                 <Slide direction="down" in mountOnEnter unmountOnExit key={transaction.id}>
                     <ListItem>
                         <ListItemAvatar>
-                            <Avatar className={transaction.type === "Income" ? 'avatarIncome' : 'avatarExpense'}>
-                                <MoneyOff/>
-                            </Avatar>
+                            {
+                                transaction.type ==='Income' ? (
+                                    <Avatar style={{color: "aliceblue" ,backgroundColor: "green"}}>
+                                        <MoneyOff/>
+                                    </Avatar>
+                                ) : (
+                                    <Avatar style={{color: "aliceblue", backgroundColor: "red"}}>
+                                        <MoneyOff/>
+                                    </Avatar>
+                                )
+                            }
+                            
                         </ListItemAvatar>
                         <ListItemText primary={transaction.category} secondary={`₹${transaction.amount} - ${transaction.date}`}/>
                         <ListItemSecondaryAction>

@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Details from "./components/Details/Details";
+import { Grid } from "@mui/material";
+import Main from "./components/Main/Main";
+import "./App.css";
 
-function App() {
+import {
+  PushToTalkButton,
+  PushToTalkButtonContainer,
+} from "@speechly/react-ui";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Grid
+        container
+        spacing={2}
+        alignItems="center"
+        justify="center"
+        style={{ height: "100vh" }}
+      >
+        {window.innerWidth > 458 ? (
+          <Grid item xs={12} sm={4} className="dispalyyes">
+            <Details title="Income" />
+          </Grid>
+        ) : (
+          <Grid item xs={12} sm={4} className="displayno">
+            <Details title="Income" />
+          </Grid>
+        )}
+        <Grid item xs={12} sm={4} className="main">
+          <Main />
+        </Grid>
+        {window.innerWidth < 458 ? (
+          <Grid item xs={12} sm={4} className="dispalyyes">
+            <Details title="Income" />
+          </Grid>
+        ) : (
+          <Grid item xs={12} sm={4} className="displayno">
+            <Details title="Income" />
+          </Grid>
+        )}
+        <Grid item xs={12} sm={4} classNAme="last">
+          <Details title="Expense" />
+        </Grid>
+      </Grid>
+      <PushToTalkButtonContainer>
+        <PushToTalkButton />
+      </PushToTalkButtonContainer>
     </div>
   );
-}
+};
 
 export default App;

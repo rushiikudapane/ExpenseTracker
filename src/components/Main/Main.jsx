@@ -30,7 +30,7 @@ const Main = () => {
                 </CardContent>
             </Card>
            ) : (
-            <Card className="main">
+            <Card  >
                 <CardHeader title="Expense Tracker" subheader="Rushiraj's Project"/>
                 <CardContent>
                     <Typography align="center" variant="h5"> Total Balance ₹{balance} </Typography>

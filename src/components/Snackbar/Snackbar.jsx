@@ -13,7 +13,7 @@ const CustomizedSnackbar = ({open, setOpen}) => {
 
   return (
     <div className = "root">
-        <Snackbar anchorOrigin={{vertical: 'top', horizontal: 'right'}} open={open} autoHideDuration={3000} onClose={handleClose}>
+        <Snackbar anchorOrigin={{vertical: 'top', horizontal: 'right'}} open={open} autoHideDuration={4000} onClose={handleClose}>
             <Alert onClose={handleClose} serverity={"success"} elevation={6} variant="filled">
             Transaction Successfully Created
             </Alert>
